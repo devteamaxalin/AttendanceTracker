@@ -6,6 +6,8 @@ import EmployeeMenu from './EmployeeMenu';
 import EmployeeDashboard from './EmployeeDashboard';
 import Leave from './Leave';
 import EmployeeProfile from './EmployeeProfile';
+import CheckInOut from './CheckInOut';
+import EmployeeScreenTime from "./EmployeeScreenTime";
 
 
 export default function EmployeeRoutes() {
@@ -29,7 +31,9 @@ export default function EmployeeRoutes() {
           <Route path="/" element={<EmployeeDashboard />} />
           <Route path="dashboard" element={<EmployeeDashboard />} />
           <Route path="leave" element={<Leave />} />
-         <Route path="profile" element={<EmployeeProfile/>} />
+          <Route path="profile" element={<EmployeeProfile/>} />
+          <Route path="attendance" element={<CheckInOut />} />
+          <Route path="screening-time" element={<EmployeeScreenTime />}/>
           
         </Routes>
       </main>

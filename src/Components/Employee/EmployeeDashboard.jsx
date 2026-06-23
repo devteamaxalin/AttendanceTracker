@@ -1,208 +1,241 @@
-
-// export default function EmployeeDashboard() {
-//   return <h1>Employee Dashboard</h1>;
-// }
-
-import React from 'react';
+import React from "react";
+import {
+  LuClock3,
+  LuCalendarDays,
+  LuUserCheck,
+  LuUsers,
+} from "react-icons/lu";
 
 export default function EmployeeDashboard() {
-  // Mock data for the attendance logging history table
-  const recentLogs = [
-    { date: '2026-06-19', checkIn: '09:02 AM', checkOut: '05:30 PM', status: 'On Time' },
-    { date: '2026-06-18', checkIn: '09:15 AM', checkOut: '05:45 PM', status: 'Late Check-In' },
-    { date: '2026-06-17', checkIn: '08:55 AM', checkOut: '05:15 PM', status: 'On Time' },
-    { date: '2026-06-16', checkIn: '09:00 AM', checkOut: '05:30 PM', status: 'On Time' },
-  ];
-
   return (
     <div style={styles.container}>
-      {/* Upper Banner Section */}
-      <div style={styles.welcomeBanner}>
-        <h1 style={styles.title}>Dashboard Overview</h1>
-        <p style={styles.subtitle}>Track your performance parameters, hours logged, and attendance records.</p>
+      {/* Top Work Log Card */}
+      <div style={styles.workLog}>
+        <div>
+          <h3>Work Log</h3>
+
+          <div style={styles.timeRow}>
+            <div>
+              <small>Check-In</small>
+              <h4>09:00:00</h4>
+            </div>
+
+            <div>
+              <small>Check-Out</small>
+              <h4>06:00:00</h4>
+            </div>
+          </div>
+        </div>
+
+        <div style={styles.timerSection}>
+          <h1>04:29:19</h1>
+          <p>Current Working Time</p>
+        </div>
+
+        <div>
+          <small>Break Time</small>
+          <h4>00:30:00</h4>
+        </div>
       </div>
 
-      {/* Analytics Matrix Summary Cards */}
+      {/* Statistics Cards */}
       <div style={styles.statsGrid}>
-        <div style={styles.card}>
-          <span style={{ ...styles.cardIcon, backgroundColor: '#eff6ff', color: '#2563eb' }}>⏱️</span>
-          <div>
-            <h3 style={styles.cardTitle}>Hours Logged</h3>
-            <p style={styles.cardValue}>38.5 <span style={styles.unit}>hrs</span></p>
-            <span style={styles.cardTrend}>This week</span>
-          </div>
+        <div style={styles.statCard}>
+          <LuCalendarDays size={30} />
+          <h3>20</h3>
+          <p>Monthly Attendance</p>
         </div>
 
-        <div style={styles.card}>
-          <span style={{ ...styles.cardIcon, backgroundColor: '#f0fdf4', color: '#166534' }}>📊</span>
-          <div>
-            <h3 style={styles.cardTitle}>Attendance Rate</h3>
-            <p style={styles.cardValue}>96%</p>
-            <span style={{ ...styles.cardTrend, color: '#166534' }}>Excellent</span>
-          </div>
+        <div style={styles.statCard}>
+          <LuClock3 size={30} />
+          <h3>100</h3>
+          <p>Monthly Hours</p>
         </div>
 
-        <div style={styles.card}>
-          <span style={{ ...styles.cardIcon, backgroundColor: '#fdf2f8', color: '#9d174d' }}>📅</span>
-          <div>
-            <h3 style={styles.cardTitle}>Available Leaves</h3>
-            <p style={styles.cardValue}>12 <span style={styles.unit}>Days</span></p>
-            <span style={styles.cardTrend}>Annual balance</span>
-          </div>
+        <div style={styles.statCard}>
+          <LuUserCheck size={30} />
+          <h3>2</h3>
+          <p>Monthly Late</p>
+        </div>
+
+        <div style={styles.statCard}>
+          <LuUsers size={30} />
+          <h3>7</h3>
+          <p>Leaves</p>
         </div>
       </div>
 
-      {/* Main Bottom Section: Data Ledger Table */}
-      <div style={styles.tableSection}>
-        <h2 style={styles.sectionHeading}>Recent Attendance Logs</h2>
-        <div style={styles.tableWrapper}>
-          <table style={styles.table}>
-            <thead>
-              <tr style={styles.thRow}>
-                <th style={styles.th}>Date</th>
-                <th style={styles.th}>Check In</th>
-                <th style={styles.th}>Check Out</th>
-                <th style={styles.th}>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentLogs.map((log, index) => (
-                <tr key={index} style={styles.tr}>
-                  <td style={styles.td}>{log.date}</td>
-                  <td style={styles.td}>{log.checkIn}</td>
-                  <td style={styles.td}>{log.checkOut}</td>
-                  <td style={styles.td}>
-                    <span style={{
-                      ...styles.badge,
-                      backgroundColor: log.status === 'On Time' ? '#e6f4ea' : '#feebec',
-                      color: log.status === 'On Time' ? '#137333' : '#c5221f'
-                    }}>
-                      {log.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Team Summary */}
+      <div style={styles.summaryGrid}>
+        <div style={styles.summaryCard}>
+          <h4>Present</h4>
+          <h2>10</h2>
         </div>
+
+        <div style={styles.summaryCard}>
+          <h4>Absent</h4>
+          <h2>3</h2>
+        </div>
+
+        <div style={styles.summaryCard}>
+          <h4>Full Day</h4>
+          <h2>8</h2>
+        </div>
+
+        <div style={styles.summaryCard}>
+          <h4>Half Day</h4>
+          <h2>2</h2>
+        </div>
+      </div>
+
+      {/* Attendance Table */}
+      <div style={styles.tableCard}>
+        <h3>Recent Attendance</h3>
+
+        <table style={styles.table}>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Check In</th>
+              <th>Check Out</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>22-06-2026</td>
+              <td>09:00 AM</td>
+              <td>06:00 PM</td>
+              <td>Present</td>
+            </tr>
+
+            <tr>
+              <td>21-06-2026</td>
+              <td>09:15 AM</td>
+              <td>06:05 PM</td>
+              <td>Present</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
 }
 
-// Clean Dashboard Layout CSS-in-JS Style Definitions
 const styles = {
   container: {
-    maxWidth: '1000px',
-    margin: '0 auto',
-    boxSizing: 'border-box',
+  width: "100%",
+  minHeight: "100vh",
+  padding: "30px",
+  boxSizing: "border-box",
+  backgroundColor: "#f8fafc",
+},
+
+  workLog: {
+  background: "linear-gradient(135deg,#ef4444,#dc2626)",
+  color: "#fff",
+  borderRadius: "16px",
+  padding: "30px",
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr",
+  alignItems: "center",
+  marginBottom: "25px",
+  boxShadow: "0 10px 25px rgba(239,68,68,.25)",
+},
+
+  timeRow: {
+    display: "flex",
+    gap: "40px",
+    marginTop: "15px",
   },
-  welcomeBanner: {
-    marginBottom: '32px',
+
+  timerSection: {
+    textAlign: "center",
   },
-  title: {
-    fontSize: '28px',
-    fontWeight: '700',
-    color: '#0f172a',
-    margin: '0 0 6px 0',
-  },
-  subtitle: {
-    fontSize: '15px',
-    color: '#64748b',
-    margin: 0,
-  },
+
   statsGrid: {
-    display: 'flex',
-    gap: '20px',
-    flexWrap: 'wrap',
-    marginBottom: '40px',
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+    gap: "20px",
+    marginBottom: "25px",
   },
-  card: {
-    flex: '1 1 280px',
-    backgroundColor: '#ffffff',
-    border: '1px solid #e2e8f0',
-    borderRadius: '12px',
-    padding: '24px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '20px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
+
+  statCard: {
+  background: "#fff",
+  borderRadius: "16px",
+  padding: "25px",
+  textAlign: "center",
+  boxShadow: "0 4px 20px rgba(0,0,0,.08)",
+  border: "1px solid #e5e7eb",
+  transition: "0.3s",
+},
+
+  summaryGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+    gap: "20px",
+    marginBottom: "25px",
   },
-  cardIcon: {
-    fontSize: '22px',
-    width: '48px',
-    height: '48px',
-    borderRadius: '10px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+
+  summaryCard: {
+    background: "#fff",
+    borderRadius: "12px",
+    padding: "20px",
+    textAlign: "center",
+    boxShadow: "0 2px 10px rgba(0,0,0,.08)",
   },
-  cardTitle: {
-    fontSize: '14px',
-    fontWeight: '600',
-    color: '#64748b',
-    margin: '0 0 4px 0',
+
+  tableCard: {
+    background: "#fff",
+    borderRadius: "12px",
+    padding: "20px",
+    boxShadow: "0 2px 10px rgba(0,0,0,.08)",
   },
-  cardValue: {
-    fontSize: '26px',
-    fontWeight: '700',
-    color: '#0f172a',
-    margin: '0 0 2px 0',
-  },
-  unit: {
-    fontSize: '14px',
-    fontWeight: '500',
-    color: '#64748b',
-  },
-  cardTrend: {
-    fontSize: '12px',
-    color: '#64748b',
-    fontWeight: '500',
-  },
-  tableSection: {
-    backgroundColor: '#ffffff',
-    border: '1px solid #e2e8f0',
-    borderRadius: '12px',
-    padding: '24px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
-  },
-  sectionHeading: {
-    fontSize: '18px',
-    fontWeight: '700',
-    color: '#0f172a',
-    margin: '0 0 20px 0',
-  },
-  tableWrapper: {
-    overflowX: 'auto',
-  },
+
   table: {
-    width: '100%',
-    borderCollapse: 'collapse',
-    textAlign: 'left',
-    fontSize: '14px',
+  width: "100%",
+  borderCollapse: "collapse",
+  marginTop: "20px",
   },
-  thRow: {
-    borderBottom: '2px solid #edf2f7',
-  },
+
   th: {
-    padding: '12px 16px',
-    fontWeight: '600',
-    color: '#4a5568',
-    backgroundColor: '#f8fafc',
+  padding: "15px",
+  backgroundColor: "#f8fafc",
+  textAlign: "left",
+  borderBottom: "1px solid #e5e7eb",
   },
-  tr: {
-    borderBottom: '1px solid #edf2f7',
-    transition: 'background-color 0.2s',
-  },
+
   td: {
-    padding: '16px',
-    color: '#2d3748',
+  padding: "15px",
+  borderBottom: "1px solid #f1f5f9",
   },
-  badge: {
-    padding: '4px 10px',
-    borderRadius: '20px',
-    fontSize: '12px',
-    fontWeight: '600',
-    display: 'inline-block',
-  }
+
+  actionSection: {
+  display: "flex",
+  gap: "15px",
+  marginBottom: "25px",
+  },
+
+  checkInBtn: {
+  background: "#22c55e",
+  color: "#fff",
+  border: "none",
+  padding: "12px 25px",
+  borderRadius: "10px",
+  cursor: "pointer",
+  fontWeight: "600",
+  },
+
+  checkOutBtn: {
+  background: "#ef4444",
+  color: "#fff",
+  border: "none",
+  padding: "12px 25px",
+  borderRadius: "10px",
+  cursor: "pointer",
+  fontWeight: "600",
+  },
+
+
 };
